@@ -5,11 +5,12 @@ Project iniciated 04/24/2021
 Project 3: Version Control Project
 
 ### Description
-Describe what your project is about and what it does
+This project is part of the Programmig for Data Science Nanodegree
 
 ### Files used
-Include the files used
+- A template for bikeshare provided by Udacity
+- 3 csv files cointaining data used for the programm
+- A read_me file with more detailed info on the logic
 
 ### Credits
-It's important to give proper credit. Add links to any repo that inspired you or blogposts you consulted.
-
+This is a project from Alex Palomino
