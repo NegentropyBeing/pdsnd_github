@@ -168,3 +168,5 @@ def main():
 
 if __name__ == "__main__":
 	main()
+
+# Moved commentary that was previously inside the programm to a separeted read_me file
