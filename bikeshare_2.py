@@ -16,20 +16,17 @@ def get_filters():
         (str) day - name of the day of week to filter by, or "all" to apply no day filter
     """
     print('Hello! Let\'s explore some US bikeshare data!')
-    # get user input for city (chicago, new york city, washington). HINT: Use a while loop to handle invalid inputs
     city = input('choose one of the three cities in our Database (chicago, new york city or washington): ') 
     while city.lower() not in ('chicago', 'new york city', 'washington'):
         print('Database only have info for chicago, new york city or washington')
         city = input('choose one of the three cities in our Database (chicago, new york city or washington): ')
 
-    # get user input for month (all, january, february, ... , june)
     months = ['january', 'february', 'march', 'april', 'may', 'june', 'all']
     month = input('Choose a month (january, february, march, april, may, june) or all: ')
     while month.lower() not in months:
         print('invalid month. Check if it is one the current available months')
         month = input('choose one of the current available months january, february, march, april, may, june or all: ')
 
-    # get user input for day of week (all, monday, tuesday, ... sunday)
     days = ['monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'sunday', 'all']
     day = input('Choose a day of the week (monday, tuesday, wednesday, thursday, fridary, saturday or sunday) and all for every data. Which one: ')
     while day.lower() not in days:
@@ -73,15 +70,12 @@ def time_stats(df):
     print('\nCalculating The Most Frequent Times of Travel...\n')
     start_time = time.time()
 
-    # display the most common month
     common_month = df['month'].mode()[0]
     print('The most common month is: ', common_month)
 
-    # display the most common day of week
     common_day = df['day_of_week'].mode()[0]
     print(' The most common day is: ', common_day)
 
-    # display the most common start hour
     df['hour'] = df['Start Time'].dt.hour
     common_hour = df['hour'].mode()[0]
     print('The most common start hour is:', common_hour)
@@ -96,15 +90,12 @@ def station_stats(df):
     print('\nCalculating The Most Popular Stations and Trip...\n')
     start_time = time.time()
 
-    # display most commonly used start station
     Start_Station = df['Start Station'].value_counts().idxmax()
     print('The most commonly used start station is:', Start_Station)
 
-    # display most commonly used end station
     End_Station = df['End Station'].value_counts().idxmax()
     print('The most commonly used end station is:', End_Station)
 
-    # display most frequent combination of start station and end station trip
     Combination_Station = df.groupby(['Start Station', 'End Station']).count()
     print('The most commonly used combination of start station and end station trip is: ', Start_Station, " & ", End_Station)
     
@@ -118,10 +109,8 @@ def trip_duration_stats(df):
     print('\nCalculating Trip Duration...\n')
     start_time = time.time()
 
-    # display total travel time
     total_travel_time = sum(df['Trip Duration'])
     print('The total travel time in seconds is:', total_travel_time)
-    # display mean travel time
     mean_travel_time = df['Trip Duration'].mean()
     print('The mean travel time in seconds is: ', mean_travel_time)
 
@@ -135,16 +124,13 @@ def user_stats(df):
     print('\nCalculating User Stats...\n')
     start_time = time.time()
 
-    # Display counts of user types
     user_types = df['User Type'].value_counts()
     print('Users are:', user_types)
 
-    # Display counts of gender
     if 'Gender' in df:
         gender_counts = df['Gender'].value_counts()
         print(gender_counts)
 
-    # Display earliest, most recent, and most common year of birth
     if 'Birth Year' in df:
         print("minimium year: " + str(df['Birth Year'].min()))
         print("maximum year: " + str(df['Birth Year'].max()))
@@ -182,10 +168,3 @@ def main():
 
 if __name__ == "__main__":
 	main()
-    
-    
-# # Read_me file
-# - I was having an issue with df definition. The preset didn't have any suggestion on how to work on the CSV path, so I decided to code it before df defition.
-# - for mode() method https://www.w3schools.com/python/ref_stat_mode.asp and https://community.dataquest.io/t/why-mode-0-not-just-mode/5057
-# - time module: https://docs.python.org/3/library/time.html
-# - for idxmax(): https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.idxmax.html
