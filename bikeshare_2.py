@@ -182,10 +182,3 @@ def main():
 
 if __name__ == "__main__":
 	main()
-    
-    
-# # Read_me file
-# - I was having an issue with df definition. The preset didn't have any suggestion on how to work on the CSV path, so I decided to code it before df defition.
-# - for mode() method https://www.w3schools.com/python/ref_stat_mode.asp and https://community.dataquest.io/t/why-mode-0-not-just-mode/5057
-# - time module: https://docs.python.org/3/library/time.html
-# - for idxmax(): https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.idxmax.html
